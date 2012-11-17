@@ -3,11 +3,8 @@
  * Module dependencies.
  */
 
-
-
 var express = require('express')
   , routes = require('./routes/index')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
@@ -33,7 +30,6 @@ app.get('/', routes.index);
 app.get('/land', routes.land);
 app.get('/takeoff', routes.takeoff);
 
-app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

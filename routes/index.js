@@ -6,15 +6,15 @@ var arDrone = require('ar-drone');
 var client  = arDrone.createClient();
 
 exports.index = function(req, res){  
-  res.render('index', { title: 'Parrot Index' });
+  res.render('index', { message: 'Parrot Index' });
 };
 
 exports.takeoff = function(req, res){  
   client.takeoff();
-  res.render('index', { title: 'We have Takeoff!' });
+  res.render('index', { message: 'We have Takeoff!' });
 };
 
 exports.land = function(req, res){
   client.land();
-  res.render('index', { title: 'Landing...? Plz...' });
+  res.render('index', { message: 'Landing...? Plz...' });
 };
