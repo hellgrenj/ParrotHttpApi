@@ -32,7 +32,8 @@ app.get('/land', routes.land);
 app.get('/takeoff', routes.takeoff);
 app.get('/clockwise', routes.clockwise);
 app.get('/image', routes.image);
-
+app.get('/goup', routes.goUp);
+app.get('/godown', routes.goDown);
 
 
 http.createServer(app).listen(app.get('port'), function(){

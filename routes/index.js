@@ -5,6 +5,9 @@
 var arDrone = require('ar-drone');
 var http = require('http');
 var client  = arDrone.createClient();
+var pngStream = arDrone.createPngStream();
+var lastPng; 
+
 
 exports.index = function(req, res){  
   res.render('index', { message: 'Parrot Index' });
@@ -25,9 +28,27 @@ exports.clockwise = function(req, res){
   res.render('index', { message: 'kind of rotating?' });
 };
 
-var pngStream = arDrone.createPngStream();
+exports.goUp = function(req, res){
+  client
+  .after(1000, function() {
+    this.up(0.5);
+  })
+  .after(1000, function() {
+    this.stop();
+  });
+  res.render('index', { message: 'up up and away....' });
+};
 
-var lastPng;
+exports.goDown = function(req, res){
+  client
+  .after(1000, function() {
+    this.down(0.5);
+  })
+  .after(1000, function() {
+    this.stop();
+  });
+  res.render('index', { message: 'coming down..' });
+};
 
 // Fetch png stream and store in lastPng
 pngStream
@@ -37,12 +58,8 @@ pngStream
     console.log(lastPng);
   });
 
-
-exports.image = function(req, res){
-    
-    res.writeHead(200, {'Content-Type': 'image/png'});
+exports.image = function(req, res){  
+  res.writeHead(200, {'Content-Type': 'image/png'});
   res.end(lastPng);
-  
-  
-};
+}; 
 
