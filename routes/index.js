@@ -24,3 +24,25 @@ exports.clockwise = function(req, res){
   client.clockwise(1.0);
   res.render('index', { message: 'kind of rotating?' });
 };
+
+var pngStream = arDrone.createPngStream();
+
+var lastPng;
+
+// Fetch png stream and store in lastPng
+pngStream
+  .on('error', console.log)
+  .on('data', function(pngBuffer) {
+    lastPng = pngBuffer;
+    console.log(lastPng);
+  });
+
+
+exports.image = function(req, res){
+    
+    res.writeHead(200, {'Content-Type': 'image/png'});
+  res.end(lastPng);
+  
+  
+};
+
