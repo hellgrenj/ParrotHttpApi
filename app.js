@@ -3,8 +3,11 @@
  * Module dependencies.
  */
 
+
+
 var express = require('express')
   , routes = require('./routes')
+  , land = require('./routes/land')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
@@ -28,6 +31,9 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/land', land.land);
+
+
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
