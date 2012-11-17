@@ -1,10 +1,41 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #ccc;
 }
 
 a {
   color: #00B7FF;
+}
+
+#container {
+	width: 800px;
+	height: 600px;
+	margin: 0 auto;
+	background: #fff;
+	position: relative;
+}
+
+#container p {
+	text-align: center;
+	padding: 10px;
+}
+
+#cameraImage {
+	display: block;
+	background: #ccaacc;
+	max-width: 800px;
+	max-height: 600px;
+	margin: 0 auto;
+}
+
+.Toolbar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 780px;
+	background: rgba(0,0,0,0.5);
+	padding: 5px 10px;
 }
 
 .btn {

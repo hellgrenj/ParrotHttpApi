@@ -1,11 +1,14 @@
 extends layout
 
 block content
-  h1 
-  p #{message}
-  a#takeoff.btn(href='/takeoff') Take off
-  a#land.btn(href='/land') Land
-  a#clockwise.btn(href='/land') Clockwise
-  a#goup.btn(href='/goup') Go Up
-  a#goup.btn(href='/godown') Go Down 
-  img(src='/image')
+  div#container
+    h1 
+    p #{message}
+    img#cameraImage(src='/image')
+    div.Toolbar
+      a#home.btn(href='/') Home
+      a#takeoff.btn(href='/takeoff') Take off
+      a#land.btn(href='/land') Land
+      a#clockwise.btn(href='/land') Clockwise
+      a#goup.btn(href='/goup') Go Up
+      a#goup.btn(href='/godown') Go Down 

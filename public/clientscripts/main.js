@@ -4,7 +4,7 @@ $(function() {
 	if(typeof($('#cameraImage') != 'undefined ' && $('#cameraImage').length) {
 		setInterval(function({
 			var source = $('#cameraImage').prop('src');
-			$('#cameraImage').prop('src', source + '?' + rndNum);
+			$('#cameraImage').prop('src', source);
 		}, 1000));
 	}
 
