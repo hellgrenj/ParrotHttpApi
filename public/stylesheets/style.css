@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+.btn {
+	display: inline-block;
+	margin: 10px 10px 10px 0px;
+	padding: 10px;
+	border-radius: 5px;
+	background: #0061b1;
+	color: #fff;
+	text-decoration: none;
+}
+
+#takeoff {
+	background: #00cc00;
+}
+
+#clockwise {
+	background: #cc0000;
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%,
+						transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%,
+						transparent 75%, transparent);
+}
