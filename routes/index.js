@@ -3,9 +3,18 @@
  * GET home page.
  */
 var arDrone = require('ar-drone');
+var client  = arDrone.createClient();
 
-exports.index = function(req, res){
-  var client  = arDrone.createClient();
+exports.index = function(req, res){  
+  res.render('index', { title: 'Parrot Index' });
+};
+
+exports.takeoff = function(req, res){  
   client.takeoff();
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'We have Takeoff!' });
+};
+
+exports.land = function(req, res){
+  client.land();
+  res.render('index', { title: 'Landing...? Plz...' });
 };

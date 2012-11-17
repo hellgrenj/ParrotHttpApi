@@ -6,8 +6,7 @@
 
 
 var express = require('express')
-  , routes = require('./routes')
-  , land = require('./routes/land')
+  , routes = require('./routes/index')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
@@ -31,8 +30,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/land', land.land);
-
+app.get('/land', routes.land);
+app.get('/takeoff', routes.takeoff);
 
 app.get('/users', user.list);
 
