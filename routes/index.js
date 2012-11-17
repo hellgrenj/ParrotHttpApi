@@ -18,3 +18,8 @@ exports.land = function(req, res){
   client.land();
   res.render('index', { message: 'Landing...? Plz...' });
 };
+
+exports.clockwise = function(req, res){
+  client.clockwise(1.0);
+  res.render('index', { message: 'kind of rotating?' });
+};
