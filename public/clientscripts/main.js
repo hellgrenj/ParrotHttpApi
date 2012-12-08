@@ -43,6 +43,8 @@ $(function() {
 	var keyS = 83;
 	var keyD = 68;
 	
+	
+	
 	$(document).keydown(function(event) {
 		if (event.which == keyLeft) {
 			event.preventDefault();
