@@ -15,8 +15,8 @@ $(function() {
 	function rndNum() {
 		return Math.floor((Math.random()*10000)+1);
 	}
-
-    var socket = io.connect('http://localhost:80');
+/*
+    var socket = io.connect('http://localhost:8081');
 	
 	socket.on('news', function (data) {
 		console.log(data);
@@ -26,8 +26,7 @@ $(function() {
 		var source = $('#cameraImage').prop('src');
 		$('#cameraImage').attr('src', source);
 	});
-	
-
+	*/
 	var leftTriggered = false,
 		rightTriggered = false,
 		frontTriggered = false,

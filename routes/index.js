@@ -4,7 +4,7 @@
 var arDrone = require('ar-drone');
 var http = require('http');
 var client  = arDrone.createClient();
-var pngStream = arDrone.createPngStream();
+//var pngStream = arDrone.createPngStream();
 var lastPng; 
 
 
@@ -74,7 +74,7 @@ exports.image = function(req, res){
 };
 
 
-var io = require('socket.io').listen(80);
+/*var io = require('socket.io').listen(8081);
 
 io.sockets.on('connection', function (socket) {
  
@@ -87,7 +87,7 @@ io.sockets.on('connection', function (socket) {
   });
  
   
-});
+});*/
 
 // Fetch png stream and store in lastPng
 
