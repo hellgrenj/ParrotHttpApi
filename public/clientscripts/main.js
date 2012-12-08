@@ -36,24 +36,24 @@ $(function() {
 
 	var keyLeft = 37;
 	var keyRight = 39;
-	var keyFront = 38;
-	var keyBack = 40;
+	var keyUp = 38;
+	var keyDown = 40;
 	var keyW = 87;
 	var keyA = 65;
 	var keyS = 83;
 	var keyD = 68;
 	
 
-	var controlArray = array(
+	var controlArray = new Array(
 		{
 			name: 'left',
-			key: keyLeft,
+			key: keyA,
 			action: '/left',
 			isTriggered: false
 		},
 		{
 			name: 'right',
-			key: keyRight,
+			key: keyD,
 			action: '/right',
 			isTriggered: false
 		},
@@ -71,26 +71,26 @@ $(function() {
 		},
 		{
 			name: 'clockwise',
-			key: keyW,
+			key: keyRight,
 			action: '/clockwise',
 			isTriggered: false
 		},
 		{
 			name: 'counterclockwise',
-			key: keyD,
+			key: keyLeft,
 			action: '/counterclockwise',
 			isTriggered: false
 		},
 		{
 			name: 'up',
-			key: keyFront,
-			action: '/up',
+			key: keyUp,
+			action: '/goUp',
 			isTriggered: false
 		},
 		{
 			name: 'down',
-			key: keyBack,
-			action: '/down',
+			key: keyDown,
+			action: '/goDown',
 			isTriggered: false
 
 		}
@@ -106,7 +106,6 @@ $(function() {
 	}
 	
 	$(document).keydown(function(event) {
-
 		// Get which command to run based on the pressed key
 		var control = getcontrolByKey(event.which);
 
@@ -131,11 +130,16 @@ $(function() {
 
 
 	$(document).keyup(function(event) {
-
-		for(var i = 0; i < controlArray.lenght; i++) {
+	
+		console.log(controlArray);
+	
+		for(var i = 0; i < controlArray.length; i++) {
+			
 			controlArray[i].isTriggered = false;
 		}
-
+		
+		
+		
 		$.ajax({
 			url: '/stop',
 			type: 'get',
