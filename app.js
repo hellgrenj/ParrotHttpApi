@@ -46,17 +46,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 }); 
 
-//var io = require('socket.io').listen(server);
 
-/*io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'worldz' });
-  socket.on('control', function (data) {
-    console.log(data);
-    if(data.command == 'goLeft') {
-      //
-    }
-  });
-});*/
 
 
 

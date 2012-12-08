@@ -4,7 +4,7 @@
 var arDrone = require('ar-drone');
 var http = require('http');
 var client  = arDrone.createClient();
-//var pngStream = arDrone.createPngStream();
+var pngStream = arDrone.createPngStream();
 var lastPng; 
 
 
@@ -68,14 +68,30 @@ exports.stop = function(req,res){
   res.render('index', { message: 'stop'});
 }
 
-// Fetch png stream and store in lastPng
-/*pngStream
-  .on('data', function(pngBuffer) {
-    lastPng = pngBuffer;
-    console.log(lastPng);
-  });
-
 exports.image = function(req, res){  
   res.writeHead(200, {'Content-Type': 'image/png'});
   res.end(lastPng);
-};*/
+};
+
+
+var io = require('socket.io').listen(80);
+
+io.sockets.on('connection', function (socket) {
+ 
+  
+  
+  pngStream
+  .on('data', function(pngBuffer) {
+    lastPng = pngBuffer;
+    console.log(lastPng);
+  
+     socket.emit('newImage');
+  });
+
+
+  
+  
+});
+
+// Fetch png stream and store in lastPng
+

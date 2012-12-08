@@ -16,11 +16,17 @@ $(function() {
 		return Math.floor((Math.random()*10000)+1);
 	}
 
-   /* var socket = io.connect('http://localhost:3000');
+    var socket = io.connect('http://localhost:80');
 	
 	socket.on('news', function (data) {
 		console.log(data);
-	}); */
+	});
+	
+	socket.on('newImage', function () {
+		var source = $('#cameraImage').prop('src');
+		$('#cameraImage').attr('src', source);
+	});
+	
 
 	var leftTriggered = false,
 		rightTriggered = false,
