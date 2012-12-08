@@ -34,8 +34,17 @@ $(function() {
 
 		// TODO skicka array med control commands
 
+	var keyLeft = 37;
+	var keyRight = 39;
+	var keyFront = 38;
+	var keyBack = 40;
+	var keyW = 87;
+	var keyA = 65;
+	var keyS = 83;
+	var keyD = 68;
+	
 	$(document).keydown(function(event) {
-		if (event.which == 37) {
+		if (event.which == keyLeft) {
 			event.preventDefault();
 			if(leftTriggered == false) {
 				console.log('Flying left');
@@ -51,7 +60,7 @@ $(function() {
 				leftTriggered = true;
 			}
 		}
-		if (event.which == 38) {
+		if (event.which == keyFront) {
 			event.preventDefault();
 			if(frontTriggered == false) {
 				console.log('Flying forward');
@@ -67,7 +76,7 @@ $(function() {
 				frontTriggered = true;
 			}
 		}
-		if (event.which == 39) {
+		if (event.which == keyRight) {
 			event.preventDefault();
 			if(rightTriggered == false) {
 				console.log('Flying right');
@@ -83,7 +92,7 @@ $(function() {
 				rightTriggered = true;
 			}
 		}
-		if (event.which == 40) {
+		if (event.which == keyBack) {
 			event.preventDefault();
 			if(backTriggered == false) {
 				console.log('Flying backwards');
