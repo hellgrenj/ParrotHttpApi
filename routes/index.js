@@ -1,4 +1,3 @@
-
 /*
  * GET home page.
  */
@@ -7,6 +6,7 @@ var http = require('http');
 var client  = arDrone.createClient();
 var pngStream = arDrone.createPngStream();
 var lastPng; 
+
 
 
 exports.index = function(req, res){  
