@@ -30,7 +30,7 @@ exports.clockwise = function(req, res){
 
 exports.goUp = function(req, res){
   client
-  .after(1000, function() {
+  .after(1, function() {
     this.up(0.5);
   })
   .after(1000, function() {
@@ -41,7 +41,7 @@ exports.goUp = function(req, res){
 
 exports.goDown = function(req, res){
   client
-  .after(1000, function() {
+  .after(1, function() {
     this.down(0.5);
   })
   .after(1000, function() {
