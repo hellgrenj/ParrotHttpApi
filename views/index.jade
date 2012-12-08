@@ -5,14 +5,6 @@ block content
     h1 
     p #{message}
     
-    script
-        var socket = io.connect('http://localhost:3000');
-        socket.on('news', function (data) {
-        console.log(data);
-        socket.emit('my other event', { my: 'data' });
-        });
-    
-    
     img#cameraImage(src='/image')
     div.Toolbar
       a#home.btn(href='/') Home

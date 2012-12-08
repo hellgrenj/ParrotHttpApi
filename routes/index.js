@@ -70,7 +70,6 @@ exports.stop = function(req,res){
 
 // Fetch png stream and store in lastPng
 pngStream
-  .on('error', console.log)
   .on('data', function(pngBuffer) {
     lastPng = pngBuffer;
     console.log(lastPng);
