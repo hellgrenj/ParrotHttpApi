@@ -1,7 +1,7 @@
 // main.js
 $(function() {
 
-	/*if(typeof($('#cameraImage') != 'undefined ' && $('#cameraImage').length)) {
+	if(typeof($('#cameraImage') != 'undefined ' && $('#cameraImage').length)) {
 		
 
 		var source = $('#cameraImage').prop('src');
@@ -14,5 +14,5 @@ $(function() {
 
 	function rndNum() {
 		return Math.floor((Math.random()*10000)+1);
-	}*/
+	}
 });
