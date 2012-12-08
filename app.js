@@ -31,6 +31,7 @@ app.get('/', routes.index);
 app.get('/land', routes.land);
 app.get('/takeoff', routes.takeoff);
 app.get('/clockwise', routes.clockwise);
+app.get('/counterClockwise', routes.counterClockwise);
 app.get('/image', routes.image);
 app.get('/goup', routes.goUp);
 app.get('/godown', routes.goDown);

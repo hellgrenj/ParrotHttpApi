@@ -25,8 +25,13 @@ exports.land = function(req, res){
 
 exports.clockwise = function(req, res){
   client.clockwise(1.0);
-  res.render('index', { message: 'kind of rotating?' });
+  res.render('index', { message: 'rotating clockwise' });
 };
+
+exports.counterClockwise = function(req, res){
+  client.counterClockwise(1.0);
+  res.render('index', { message: 'rotating counterclockwise'})
+}
 
 exports.goUp = function(req, res){
   client.up(0.2);
