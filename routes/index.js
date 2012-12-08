@@ -29,26 +29,19 @@ exports.clockwise = function(req, res){
 };
 
 exports.goUp = function(req, res){
-  client
-  .after(1, function() {
-    this.up(0.5);
-  })
-  .after(1000, function() {
-    this.stop();
-  });
+  client.up(0.2);
   res.render('index', { message: 'up up and away....' });
 };
 
 exports.goDown = function(req, res){
-  client
-  .after(1, function() {
-    this.down(0.5);
-  })
-  .after(1000, function() {
-    this.stop();
-  });
+  client.down(0.2);
   res.render('index', { message: 'coming down..' });
 };
+
+exports.stop = function(req,res){
+  client.stop();
+  res.render('index', { message: 'stop'});
+}
 
 // Fetch png stream and store in lastPng
 /*pngStream

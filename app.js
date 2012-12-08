@@ -34,6 +34,7 @@ app.get('/clockwise', routes.clockwise);
 app.get('/image', routes.image);
 app.get('/goup', routes.goUp);
 app.get('/godown', routes.goDown);
+app.get('/stop', routes.stop);
 
 
 http.createServer(app).listen(app.get('port'), function(){
