@@ -43,90 +43,106 @@ $(function() {
 	var keyS = 83;
 	var keyD = 68;
 	
-	
+
+	var controlArray = array(
+		{
+			name: 'left',
+			key: keyLeft,
+			action: '/left',
+			isTriggered: false
+		},
+		{
+			name: 'right',
+			key: keyRight,
+			action: '/right',
+			isTriggered: false
+		},
+		{
+			name: 'front',
+			key: keyW,
+			action: '/front',
+			isTriggered: false
+		},
+		{
+			name: 'back',
+			key: keyS,
+			action: '/back',
+			isTriggered: false
+		},
+		{
+			name: 'clockwise',
+			key: keyW,
+			action: '/clockwise',
+			isTriggered: false
+		},
+		{
+			name: 'counterclockwise',
+			key: keyD,
+			action: '/counterclockwise',
+			isTriggered: false
+		},
+		{
+			name: 'up',
+			key: keyFront,
+			action: '/up',
+			isTriggered: false
+		},
+		{
+			name: 'down',
+			key: keyBack,
+			action: '/down',
+			isTriggered: false
+
+		}
+	);
+
+	function getcontrolByKey(key) {
+		for(var i = 0; i < controlArray.length; i++) {
+			if(controlArray[i].key === key) {
+				return controlArray[i];
+			}
+		}
+		return false;
+	}
 	
 	$(document).keydown(function(event) {
-		if (event.which == keyLeft) {
+
+		// Get which command to run based on the pressed key
+		var control = getcontrolByKey(event.which);
+
+		if(typeof(control) !== 'undefined' && control != '') {
+			// Prevent default event
 			event.preventDefault();
-			if(leftTriggered == false) {
-				console.log('Flying left');
-				//socket.emit('control', { command: 'goLeft' });
+
+			// If not previously triggered, run the command
+			if(!control.isTriggered) {
+				control.isTriggered = true;
+				console.log('Calling control ' + control.name);
 				$.ajax({
-					url: '/left',
+					url: control.action,
 					type: 'get',
-					success: function(data) {
-						//console.log(data);
-					},
+					success: function(data) {},
 					cache: false
 				});
-				leftTriggered = true;
 			}
 		}
-		if (event.which == keyFront) {
-			event.preventDefault();
-			if(frontTriggered == false) {
-				console.log('Flying forward');
-				//socket.emit('control', { command: 'goFront' });
-				$.ajax({
-					url: '/front',
-					type: 'get',
-					success: function(data) {
-						//console.log(data);
-					},
-					cache: false
-				});
-				frontTriggered = true;
-			}
-		}
-		if (event.which == keyRight) {
-			event.preventDefault();
-			if(rightTriggered == false) {
-				console.log('Flying right');
-				//socket.emit('control', { command: 'goRight' });
-				$.ajax({
-					url: '/right',
-					type: 'get',
-					success: function(data) {
-						//console.log(data);
-					},
-					cache: false
-				});
-				rightTriggered = true;
-			}
-		}
-		if (event.which == keyBack) {
-			event.preventDefault();
-			if(backTriggered == false) {
-				console.log('Flying backwards');
-				//socket.emit('control', { command: 'goBack' });
-				$.ajax({
-					url: '/back',
-					type: 'get',
-					success: function(data) {
-						//console.log(data);
-					},
-					cache: false
-				});
-				backTriggered = true;
-			}
-		}
+
 	});
 
+
 	$(document).keyup(function(event) {
-		// stop!
-		leftTriggered = false,
-		rightTriggered = false,
-		frontTriggered = false,
-		backTriggered = false;
-		//socket.emit('control', { command: 'stop' });
+
+		for(var i = 0; i < controlArray.lenght; i++) {
+			controlArray[i].isTriggered = false;
+		}
+
 		$.ajax({
-					url: '/stop',
-					type: 'get',
-					success: function(data) {
-						//console.log(data);
-					},
-					cache: false
-				});
+			url: '/stop',
+			type: 'get',
+			success: function(data) {},
+			cache: false
+		});
+
 		console.log('stopping..');
 	});
 });
