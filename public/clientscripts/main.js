@@ -42,9 +42,23 @@ $(function() {
 	var keyA = 65;
 	var keyS = 83;
 	var keyD = 68;
+	var keyT = 84;
+	var keyL = 76;
 	
 
 	var controlArray = new Array(
+		{
+			name: 'land',
+			key: keyL,
+			action: '/land',
+			isTriggered: false
+		},
+		{
+			name: 'takeoff',
+			key: keyT,
+			action: '/takeoff',
+			isTriggered: false
+		},
 		{
 			name: 'left',
 			key: keyA,
