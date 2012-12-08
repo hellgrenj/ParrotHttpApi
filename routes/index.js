@@ -78,8 +78,6 @@ var io = require('socket.io').listen(80);
 
 io.sockets.on('connection', function (socket) {
  
-  
-  
   pngStream
   .on('data', function(pngBuffer) {
     lastPng = pngBuffer;
@@ -87,9 +85,7 @@ io.sockets.on('connection', function (socket) {
   
      socket.emit('newImage');
   });
-
-
-  
+ 
   
 });
 
