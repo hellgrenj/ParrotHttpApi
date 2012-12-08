@@ -35,7 +35,14 @@ $(function() {
 			if(leftTriggered == false) {
 				console.log('Flying left');
 				//socket.emit('control', { command: 'goLeft' });
-				$.get('/left');
+				$.ajax({
+					url: '/left',
+					type: 'get',
+					success: function(data) {
+						//console.log(data);
+					},
+					cache: false
+				});
 				leftTriggered = true;
 			}
 		}
@@ -44,7 +51,14 @@ $(function() {
 			if(frontTriggered == false) {
 				console.log('Flying forward');
 				//socket.emit('control', { command: 'goFront' });
-				$.get('/front');
+				$.ajax({
+					url: '/front',
+					type: 'get',
+					success: function(data) {
+						//console.log(data);
+					},
+					cache: false
+				});
 				frontTriggered = true;
 			}
 		}
@@ -53,7 +67,14 @@ $(function() {
 			if(rightTriggered == false) {
 				console.log('Flying right');
 				//socket.emit('control', { command: 'goRight' });
-				$.get('/right');
+				$.ajax({
+					url: '/right',
+					type: 'get',
+					success: function(data) {
+						//console.log(data);
+					},
+					cache: false
+				});
 				rightTriggered = true;
 			}
 		}
@@ -62,7 +83,14 @@ $(function() {
 			if(backTriggered == false) {
 				console.log('Flying backwards');
 				//socket.emit('control', { command: 'goBack' });
-				$.get('/back');
+				$.ajax({
+					url: '/back',
+					type: 'get',
+					success: function(data) {
+						//console.log(data);
+					},
+					cache: false
+				});
 				backTriggered = true;
 			}
 		}
@@ -75,7 +103,14 @@ $(function() {
 		frontTriggered = false,
 		backTriggered = false;
 		//socket.emit('control', { command: 'stop' });
-		$.get('/stop');
+		$.ajax({
+					url: '/stop',
+					type: 'get',
+					success: function(data) {
+						//console.log(data);
+					},
+					cache: false
+				});
 		console.log('stopping..');
 	});
 });
