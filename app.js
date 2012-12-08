@@ -35,6 +35,10 @@ app.get('/image', routes.image);
 app.get('/goup', routes.goUp);
 app.get('/godown', routes.goDown);
 app.get('/stop', routes.stop);
+app.get('/front', routes.goFront);
+app.get('/back', routes.goBack);
+app.get('/left', routes.goLeft);
+app.get('/right', routes.goRight);
 
 
 http.createServer(app).listen(app.get('port'), function(){

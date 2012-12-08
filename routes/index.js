@@ -38,6 +38,26 @@ exports.goDown = function(req, res){
   res.render('index', { message: 'coming down..' });
 };
 
+exports.goLeft = function(req, res){
+  client.left(0.2);
+  res.render('index', { message: 'going left..' });
+};
+
+exports.goRight = function(req, res){
+  client.right(0.2);
+  res.render('index', { message: 'going right..' });
+};
+
+exports.goFront = function(req, res){
+  client.front(0.2);
+  res.render('index', { message: 'going forward..' });
+};
+
+exports.goBack = function(req, res){
+  client.back(0.2);
+  res.render('index', { message: 'going backwards..' });
+};
+
 exports.stop = function(req,res){
   client.stop();
   res.render('index', { message: 'stop'});
