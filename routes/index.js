@@ -5,7 +5,7 @@
 var arDrone = require('ar-drone');
 var http = require('http');
 var client  = arDrone.createClient();
-var pngStream = arDrone.createPngStream();
+//var pngStream = arDrone.createPngStream();
 var lastPng; 
 
 
@@ -30,7 +30,7 @@ exports.clockwise = function(req, res){
 
 exports.goUp = function(req, res){
   client
-  .after(1000, function() {
+  .after(100, function() {
     this.up(0.5);
   })
   .after(1000, function() {
@@ -41,7 +41,7 @@ exports.goUp = function(req, res){
 
 exports.goDown = function(req, res){
   client
-  .after(1000, function() {
+  .after(100, function() {
     this.down(0.5);
   })
   .after(1000, function() {
@@ -51,7 +51,7 @@ exports.goDown = function(req, res){
 };
 
 // Fetch png stream and store in lastPng
-pngStream
+/*pngStream
   .on('error', console.log)
   .on('data', function(pngBuffer) {
     lastPng = pngBuffer;
@@ -61,5 +61,5 @@ pngStream
 exports.image = function(req, res){  
   res.writeHead(200, {'Content-Type': 'image/png'});
   res.end(lastPng);
-}; 
+};*/ 
 
