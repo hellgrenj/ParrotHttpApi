@@ -4,52 +4,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #ccc;
 }
 
 a {
   color: #00B7FF;
-}
-
-#container {
-	width: 800px;
-	height: 400px;
-	margin: 0 auto;
-	background: #fff;
-	position: relative;
-}
-
-#container p {
-	text-align: center;
-	padding: 10px;
-}
-
-.Toolbar {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 780px;
-	background: rgba(0,0,0,0.5);
-	padding: 5px 10px;
-}
-
-.btn {
-	display: inline-block;
-	margin: 10px 10px 10px 0px;
-	padding: 10px;
-	border-radius: 5px;
-	background: #0061b1;
-	color: #fff;
-	text-decoration: none;
-}
-
-#takeoff {
-	background: #00cc00;
-}
-
-#clockwise {
-	background: #cc0000;
-	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%,
-						transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%,
-						transparent 75%, transparent);
 }
