@@ -1,4 +1,3 @@
-// Testar
 
 var express = require('express')
   , routes = require('./routes/index')
