@@ -1,13 +1,10 @@
 
-/**
- * Module dependencies.
- */ 
 
 var express = require('express')
   , routes = require('./routes/index')
   , http = require('http')
   , path = require('path')
-  , arDrone = require('ar-drone');;
+  , arDrone = require('ar-drone');
 
 var app = express();
 
@@ -32,7 +29,6 @@ app.get('/land', routes.land);
 app.get('/takeoff', routes.takeoff);
 app.get('/clockwise', routes.clockwise);
 app.get('/counterClockwise', routes.counterClockwise);
-app.get('/image', routes.image);
 app.get('/goup', routes.goUp);
 app.get('/godown', routes.goDown);
 app.get('/stop', routes.stop);

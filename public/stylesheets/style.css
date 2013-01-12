@@ -21,14 +21,6 @@ a {
 	padding: 10px;
 }
 
-#cameraImage {
-	display: block;
-	background: #ccaacc;
-	max-width: 800px;
-	max-height: 600px;
-	margin: 0 auto;
-}
-
 .Toolbar {
 	position: absolute;
 	bottom: 0;

@@ -1,39 +1,6 @@
-// main.js
 $(function() {
 
-	/*if(typeof($('#cameraImage') != 'undefined ' && $('#cameraImage').length)) {
-		
-
-		var source = $('#cameraImage').prop('src');
-
-		var interval = setInterval(function() {	
-			//console.log('updating image source');
-			$('#cameraImage').attr('src', source);
-		}, 1000);
-	}*/
-
-	function rndNum() {
-		return Math.floor((Math.random()*10000)+1);
-	}
-/*
-    var socket = io.connect('http://localhost:8081');
 	
-	socket.on('news', function (data) {
-		console.log(data);
-	});
-	
-	socket.on('newImage', function () {
-		var source = $('#cameraImage').prop('src');
-		$('#cameraImage').attr('src', source);
-	});
-	*/
-	var leftTriggered = false,
-		rightTriggered = false,
-		frontTriggered = false,
-		backTriggered = false;
-
-		// TODO skicka array med control commands
-
 	var keyLeft = 37;
 	var keyRight = 39;
 	var keyUp = 38;
@@ -152,8 +119,6 @@ $(function() {
 			
 			controlArray[i].isTriggered = false;
 		}
-		
-		
 		
 		$.ajax({
 			url: '/stop',
