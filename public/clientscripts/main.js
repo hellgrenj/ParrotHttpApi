@@ -106,6 +106,7 @@ $(function() {
 	}
 	
 	$(document).keydown(function(event) {
+		console.log(event.which);
 		// Get which command to run based on the pressed key
 		var control = getcontrolByKey(event.which);
 
