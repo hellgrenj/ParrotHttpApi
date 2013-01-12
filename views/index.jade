@@ -3,18 +3,22 @@ extends layout
 block content
   div#container
     h1 
-    p #{message}
+      Parrot Http Api
+    p
+      ul
+        li GET /takeoff
+        li GET /land
+        li GET /clockwise
+        li GET /counterClockwise
+        li GET /goUp
+        li GET /goDown
+        li GET /stop
+        li GET /goFront
+        li GET /goBack
+        li GET /goLeft
+        li GET /goRight
     
-    div.Toolbar
-      a#home.btn(href='/') Home
-      a#takeoff.btn(href='/takeoff') Take off
-      a#land.btn(href='/land') Land
-      a#clockwise.btn(href='/clockwise') Clockwise
-      a#counterClockwise.btn(href='/counterClockwise') CounterClockwise
-      a#goup.btn(href='/goup') Go Up
-      a#goup.btn(href='/godown') Go Down
-      a#stop.btn(href='/front') Go Forward
-      a#stop.btn(href='/back') Go Backwards
-      a#stop.btn(href='/left') Go Left
-      a#stop.btn(href='/right') Go Right
-      a#stop.btn(href='/stop') Stop
+       a(href='demoClient') Checkout example client 
+      
+      
+      
