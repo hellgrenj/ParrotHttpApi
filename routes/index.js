@@ -34,12 +34,12 @@ exports.counterClockwise = function(req, res){
 }
 
 exports.goUp = function(req, res){
-  client.up(0.2);
+  client.up(1.0);
   res.render('index', { message: 'up up and away....' });
 };
 
 exports.goDown = function(req, res){
-  client.down(0.2);
+  client.down(1.0);
   res.render('index', { message: 'coming down..' });
 };
 
