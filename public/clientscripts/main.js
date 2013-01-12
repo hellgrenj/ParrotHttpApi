@@ -98,6 +98,8 @@ $(function() {
 			// If not previously triggered, run the command
 			if(!control.isTriggered) {
 				control.isTriggered = true;
+				// Set button state to active
+				$('#' + control.name).addClass('active');
 				console.log('Calling control ' + control.name);
 				$.ajax({
 					url: control.action,
@@ -126,6 +128,8 @@ $(function() {
 			success: function(data) {},
 			cache: false
 		});
+
+		$('a.active').removeClass('active');
 
 		console.log('stopping..');
 	});
