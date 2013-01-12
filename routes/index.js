@@ -62,4 +62,8 @@ exports.stop = function(req,res){
   res.render('index', { message: 'stop'});
 }
 
+exports.demoClient = function(req,res) {
+  res.render('demoClient', { message: '' });
+}
+
 

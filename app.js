@@ -35,6 +35,7 @@ app.get('/front', routes.goFront);
 app.get('/back', routes.goBack);
 app.get('/left', routes.goLeft);
 app.get('/right', routes.goRight);
+app.get('/demoClient', routes.demoClient);
 
 
 var server = http.createServer(app).listen(app.get('port'), function(){

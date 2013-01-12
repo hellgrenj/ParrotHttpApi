@@ -1,0 +1,24 @@
+doctype 5
+html
+  head
+    script(src='/clientscripts/jquery-1.8.3.min.js')
+    script(src='/clientscripts/main.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div#container
+      h1 
+      p #{message}
+      
+      div.Toolbar
+        a#home.btn(href='/') Home
+        a#takeoff.btn(href='/takeoff') Take off
+        a#land.btn(href='/land') Land
+        a#clockwise.btn(href='/clockwise') Clockwise
+        a#counterClockwise.btn(href='/counterClockwise') CounterClockwise
+        a#goup.btn(href='/goup') Go Up
+        a#goup.btn(href='/godown') Go Down
+        a#stop.btn(href='/front') Go Forward
+        a#stop.btn(href='/back') Go Backwards
+        a#stop.btn(href='/left') Go Left
+        a#stop.btn(href='/right') Go Right
+        a#stop.btn(href='/stop') Stop
