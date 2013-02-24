@@ -12,6 +12,7 @@ $(function() {
 	var keyT = 84;
 	var keyL = 76;
 	
+	var recordedCommands = new Array();
 
 	var controlArray = new Array(
 		{
@@ -77,6 +78,8 @@ $(function() {
 		}
 	);
 
+
+
 	function getcontrolByKey(key) {
 		for(var i = 0; i < controlArray.length; i++) {
 			if(controlArray[i].key === key) {
@@ -85,18 +88,28 @@ $(function() {
 		}
 		return false;
 	}
+
+	$("#play").click(function(){
+		playRecordedCommands();
+	})
 	
 	$(document).keydown(function(event) {
+
+
 		console.log(event.which);
 		// Get which command to run based on the pressed key
 		var control = getcontrolByKey(event.which);
 
+		
+		
 		if(typeof(control) !== 'undefined' && control != '') {
 			// Prevent default event
 			event.preventDefault();
 
 			// If not previously triggered, run the command
 			if(!control.isTriggered) {
+				recordedCommands.push({action:control.action, timestamp: (new Date()).getTime()});
+				listRecordedCommands();
 				control.isTriggered = true;
 				// Set button state to active
 				$('#' + control.name).addClass('active');
@@ -112,10 +125,54 @@ $(function() {
 
 	});
 
+	function listRecordedCommands(){
+
+		for(var i=0; i < recordedCommands.length; i++)
+		{
+
+			console.log("recorded command: "  + recordedCommands[i].action + " " + recordedCommands[i].timestamp);
+		}
+	}
+
+	function playRecordedCommands(){
+
+
+		for(var i=0; i < recordedCommands.length; i++)
+		{
+			/*console.log("i=" + i);
+			var sleepTime = 0;
+			if(i !== (recordedCommands.length - 1)){
+				var j = i+1;
+				console.log("j = " + j);
+				console.log(recordedCommands[j].timestamp);
+				sleepTime = recordedCommands[j].timestamp - recordedCommands[i].timestamp;
+			}*/
+			
+
+			setTimeout(function(){
+
+				$.ajax({
+						url: recordedCommands[i].action,
+						type: 'get',
+						success: function(data) {},
+						cache: false
+					});
+
+				console.log("requested " + recordedCommands[i].action);
+						
+			},100);
+		}
+
+
+
+	}
+
 
 	$(document).keyup(function(event) {
 	
-		console.log(controlArray);
+		recordedCommands.push({action:'/stop', timestamp: (new Date()).getTime()});
+		listRecordedCommands();
+		
 	
 		for(var i = 0; i < controlArray.length; i++) {
 			
