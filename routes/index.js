@@ -1,6 +1,18 @@
 var arDrone = require('ar-drone');
 var http = require('http');
 var client  = arDrone.createClient();
+var navdata = false;
+
+/**
+ * Enable Navdata by setting demo to FALSE.
+ * Then save navdata to global navdata variable on each navdata event triggered by the client
+ * Sample navdata output can be found in navdata.txt.
+ */
+client.config('general:navdata_demo', 'FALSE');
+
+client.on('navdata', function(data) {
+  navdata = data;
+});
 
 
 exports.index = function(req, res){  
@@ -25,7 +37,7 @@ exports.clockwise = function(req, res){
 exports.counterClockwise = function(req, res){
   client.counterClockwise(1.0);
   res.render('index', { message: 'rotating counterclockwise'})
-}
+};
 
 exports.goUp = function(req, res){
   client.up(1.0);
@@ -60,10 +72,14 @@ exports.goBack = function(req, res){
 exports.stop = function(req,res){
   client.stop();
   res.render('index', { message: 'stop'});
-}
+};
+
+// Return navigation data as JSON
+exports.navData = function(req,res) {
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.end(JSON.stringify(navdata));
+};
 
 exports.demoClient = function(req,res) {
   res.render('demoClient', { message: '' });
-}
-
-
+};
