@@ -91,18 +91,18 @@ $(function() {
 
 	$("#play").click(function(){
 		playRecordedCommands();
-	})
+	});
 	
 	$(document).keydown(function(event) {
 
 
-		console.log(event.which);
+		//console.log(event.which);
 		// Get which command to run based on the pressed key
 		var control = getcontrolByKey(event.which);
 
 		
 		
-		if(typeof(control) !== 'undefined' && control != '') {
+		if(typeof(control) !== 'undefined' && control !== '') {
 			// Prevent default event
 			event.preventDefault();
 
@@ -134,39 +134,40 @@ $(function() {
 		}
 	}
 
-	function playRecordedCommands(){
+	function playRecordedCommands(command) {
 
-
-		for(var i=0; i < recordedCommands.length; i++)
-		{
-			/*console.log("i=" + i);
-			var sleepTime = 0;
-			if(i !== (recordedCommands.length - 1)){
-				var j = i+1;
-				console.log("j = " + j);
-				console.log(recordedCommands[j].timestamp);
-				sleepTime = recordedCommands[j].timestamp - recordedCommands[i].timestamp;
-			}*/
-			
-
-			setTimeout(function(){
-
-				$.ajax({
-						url: recordedCommands[i].action,
-						type: 'get',
-						success: function(data) {},
-						cache: false
-					});
-
-				console.log("requested " + recordedCommands[i].action);
-						
-			},100);
+		if(typeof(command) == 'undefined') { 
+			command = 0;
+			console.log('Playing back commands:');
+			console.log('---------------------------------------------');
 		}
 
+		var action = recordedCommands[command].action;
+		
+		console.log("Action: " + action + " (" + command+ ")");
+		callCommand(action);
 
+		var nextCommand = command + 1;
+
+		if(command < recordedCommands.length - 1) {
+
+			var sleep = recordedCommands[(command+1)].timestamp  - recordedCommands[command].timestamp;
+			console.log('Calling next command in : ' + sleep + ' milliseconds');
+			setTimeout(function() {
+				playRecordedCommands(nextCommand);
+			}, sleep);
+		}
 
 	}
 
+	function callCommand(action) {
+		$.ajax({
+			url: action,
+			type: 'get',
+			cache: false,
+			success: function(data) {}
+		});
+	}
 
 	$(document).keyup(function(event) {
 	
