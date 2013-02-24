@@ -6,8 +6,6 @@ html
     script(src='/clientscripts/less-1.3.3.min.js')
     script(src='/dronestream/nodecopter-client.js')
     script(src='/clientscripts/main.js')
-    script
-      var copterStream = new NodecopterStream($('#dronestream'));
   body
     div#container
       div.Toolbar
@@ -48,3 +46,5 @@ html
             i.icon-arrow-down
             | &nbsp;Down
       div#dronestream(width=640, height=360)
+    script
+      var copterStream = new NodecopterStream($('#dronestream'));
